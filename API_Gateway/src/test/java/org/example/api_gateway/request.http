@@ -1,0 +1,37 @@
+### Pobierz wszystkie sekcje
+GET http://localhost:8082/api/sections
+
+### Dodaj nową sekcję
+POST http://localhost:8082/api/sections
+Content-Type: application/json
+
+{
+  "name": "New Section",
+  "description": "Description."
+}
+
+### Pobierz wszystkie elementy
+GET http://localhost:8082/api/elements
+
+### Pobierz wszystkie elementy z sekcji
+GET http://localhost:8082/api/elements/section/9005263e-758a-40ca-98fb-99792535b171
+
+### Pobierz wszystkie sekcje z elementow
+GET http://localhost:8082/api/elements/showSections
+
+### Dodaj nowy element do sekcji
+POST http://localhost:8082/api/elements/section/addId/80b31f7a-4399-4816-a676-86624626d3f3
+Content-Type: application/json
+
+{
+  "name": "New Element",
+  "price": 10
+
+}
+
+### Usuń element
+DELETE http://localhost:8082/api/elements/515ae74b-6a53-4cd6-8caa-78775719ac0f
+
+### Usuń sekcje
+DELETE http://localhost:8082/api/sections/1e261a39-2a7d-40fc-88e0-da5761127320
+

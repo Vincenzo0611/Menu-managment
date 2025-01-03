@@ -1,0 +1,36 @@
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: category-service
+          uri: http://localhost:8080
+          predicates:
+            - Path=/api/sections/**
+        - id: elements-service
+          uri: http://localhost:8081
+          predicates:
+            - Path=/api/elements/**
+      globalcors:
+        cors-configurations:
+          '[/**]': # Globalna konfiguracja dla wszystkich tras
+            allowedOrigins: "http://localhost:4200" # Adres aplikacji Angular
+            allowedMethods:
+              - GET
+              - POST
+              - PUT
+              - DELETE
+              - OPTIONS
+            allowedHeaders: "*"
+            allowCredentials: true
+
+  application:
+    name: api-gateway
+
+server:
+  port: 8082
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"

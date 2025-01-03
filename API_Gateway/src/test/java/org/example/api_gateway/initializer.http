@@ -1,0 +1,206 @@
+### Dodaj nowe sekcje
+POST http://localhost:8082/api/sections
+Content-Type: application/json
+
+{
+  "name": "Przystawki",
+  "description": "Idealne na początek posiłku – lekkie i smaczne przekąski."
+}
+###
+POST http://localhost:8082/api/sections
+Content-Type: application/json
+
+{
+"name": "Dania główne",
+"description": "Pełne smaku i różnorodności dania główne, które zaspokoją każdy apetyt."
+}
+###
+POST http://localhost:8082/api/sections
+Content-Type: application/json
+
+{
+  "name": "Desery",
+  "description": "Słodkie zakończenie posiłku – wybierz coś wyjątkowego."
+}
+###
+POST http://localhost:8082/api/sections
+Content-Type: application/json
+
+{
+  "name": "Napoje",
+  "description": "Odświeżające napoje, które uzupełnią każdy posiłek."
+}
+###
+POST http://localhost:8082/api/sections
+Content-Type: application/json
+
+{
+  "name": "Zupy",
+  "description": "Rozgrzewające i aromatyczne zupy na każdą okazję."
+}
+###
+POST http://localhost:8082/api/sections
+Content-Type: application/json
+
+{
+  "name": "Sałatki",
+  "description": "Świeże i zdrowe sałatki z najwyższej jakości składników."
+}
+###
+POST http://localhost:8082/api/sections
+Content-Type: application/json
+
+{
+  "name": "Dania wegetariańskie",
+  "description": "Bogate w smaki dania bez mięsa dla miłośników roślinnych przysmaków."
+}
+###
+POST http://localhost:8082/api/sections
+Content-Type: application/json
+
+{
+  "name": "Dania sezonowe",
+  "description": "Potrawy inspirowane aktualną porą roku i świeżymi składnikami."
+}
+
+### Dodaj nowy element do sekcji
+POST http://localhost:8082/api/elements/section/addName/Przystawki
+Content-Type: application/json
+
+{
+  "name": "Sałatka",
+  "price": 10
+}
+
+###
+POST http://localhost:8082/api/elements/section/addName/Przystawki
+Content-Type: application/json
+
+{
+  "name": "Tatar wołowy",
+  "price": 15
+}
+
+### Dodaj elementy do sekcji "Dania główne"
+POST http://localhost:8082/api/elements/section/addName/Dania główne
+Content-Type: application/json
+
+{
+  "name": "Stek",
+  "price": 50
+}
+
+###
+POST http://localhost:8082/api/elements/section/addName/Dania główne
+Content-Type: application/json
+
+{
+  "name": "Makaron Carbonara",
+  "price": 30
+}
+
+###
+POST http://localhost:8082/api/elements/section/addName/Desery
+Content-Type: application/json
+
+{
+"name": "Sernik",
+"price": 20
+}
+
+###
+POST http://localhost:8082/api/elements/section/addName/Desery
+Content-Type: application/json
+
+{
+  "name": "Lody waniliowe",
+  "price": 15
+}
+###
+POST http://localhost:8082/api/elements/section/addName/Napoje
+Content-Type: application/json
+
+{
+"name": "Lemoniada",
+"price": 10
+}
+
+###
+POST http://localhost:8082/api/elements/section/addName/Napoje
+Content-Type: application/json
+
+{
+  "name": "Kawa",
+  "price": 12
+}
+###
+POST http://localhost:8082/api/elements/section/addName/Zupy
+Content-Type: application/json
+
+{
+"name": "Rosół",
+"price": 14
+}
+
+###
+POST http://localhost:8082/api/elements/section/addName/Zupy
+Content-Type: application/json
+
+{
+  "name": "Barszcz czerwony",
+  "price": 12
+}
+
+###
+POST http://localhost:8082/api/elements/section/addName/Sałatki
+Content-Type: application/json
+
+{
+"name": "Sałatka Cezar",
+"price": 18
+}
+
+###
+POST http://localhost:8082/api/elements/section/addName/Sałatki
+Content-Type: application/json
+
+{
+  "name": "Sałatka grecka",
+  "price": 16
+}
+
+###
+POST http://localhost:8082/api/elements/section/addName/Dania wegetariańskie
+Content-Type: application/json
+
+{
+"name": "Tofu z warzywami",
+"price": 25
+}
+
+###
+POST http://localhost:8082/api/elements/section/addName/Dania wegetariańskie
+Content-Type: application/json
+
+{
+  "name": "Kotlety z ciecierzycy",
+  "price": 22
+}
+
+###
+POST http://localhost:8082/api/elements/section/addName/Dania sezonowe
+Content-Type: application/json
+
+{
+"name": "Zupa dyniowa",
+"price": 14
+}
+
+###
+POST http://localhost:8082/api/elements/section/addName/Dania sezonowe
+Content-Type: application/json
+
+{
+  "name": "Grzane wino",
+  "price": 20
+}
