@@ -1,0 +1,30 @@
+<div class="form-container">
+    <h2>Edytuj element</h2>
+    <form (ngSubmit)="updateElement()">
+      <label for="elementName">Nazwa elementu:</label>
+      <input
+        id="elementName"
+        type="text"
+        [(ngModel)]="elementName"
+        name="elementName"
+        required
+      />
+      <label for="elementPrice">Cena:</label>
+      <input
+        id="elementPrice"
+        type="number"
+        [(ngModel)]="elementPrice"
+        name="elementPrice"
+        required
+        step="1"
+        min="1"
+      />
+      <div class="buttons">
+        <button type="submit">Zapisz</button>
+        <button type="button" (click)="routeBack()">
+          Anuluj
+        </button>
+      </div>
+    </form>
+  </div>
+  

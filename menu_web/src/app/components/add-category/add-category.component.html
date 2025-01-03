@@ -1,0 +1,28 @@
+<div class="form-container">
+    <h2>Dodaj nową kategorię</h2>
+    <form (ngSubmit)="addCategory()">
+      <label for="categoryName">Nazwa kategorii:</label>
+      <input
+        id="categoryName"
+        type="text"
+        [(ngModel)]="categoryName"
+        name="categoryName"
+        required
+      />
+      <label for="categoryDescription">Opis:</label>
+      <input
+        id="categoryDescription"
+        type="text"
+        [(ngModel)]="categoryDescription"
+        name="categoryDescription"
+        required
+      />
+      <div class="buttons">
+        <button type="submit">Dodaj</button>
+        <button type="button" (click)="router.navigate(['/categories'])">
+          Anuluj
+        </button>
+      </div>
+    </form>
+  </div>
+  

@@ -1,0 +1,40 @@
+<table>
+    <thead>
+        <th>{{categoryName }}</th>
+    </thead>
+    <tbody>
+        <td>{{categoryDescription}}</td>
+    </tbody>
+</table>
+
+<table>
+    <thead>
+      <tr>
+        <th>Elementy</th>
+        <th><button class="add-btn" (click)="addElement()">Dodaj</button></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let element of elements">
+        <td>{{ element.name }}</td>
+        <td>
+          <button class="edit-btn" (click)="editElement(element.id)">Edytuj</button>
+          <button class="delete-btn" (click)="openConfirmationModal(element.id)">Usuń</button>
+          <button class="details-btn" (click)="detailsView(element.id)">Szczegóły</button>
+        </td>
+      </tr>
+      <tr>
+        <td><button class="delete-btn" (click)="router.navigate(['/categories'])">Wróć</button></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+<!-- Modal -->
+<div class="modal" *ngIf="showModal">
+    <div class="modal-content">
+      <p>Czy na pewno chcesz usunąć ten element?</p>
+      <button class ="tak-button" (click)="confirmDeletion()">Tak</button>
+      <button class ="nie-button" (click)="cancelDeletion()">Nie</button>
+    </div>
+  </div>
