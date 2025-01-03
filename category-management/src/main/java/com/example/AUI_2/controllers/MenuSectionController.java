@@ -2,6 +2,7 @@ package com.example.AUI_2.controllers;
 
 import com.example.AUI_2.*;
 import com.example.AUI_2.DTO.*;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -18,6 +19,9 @@ public class MenuSectionController {
     private final MenuSectionService menuSectionService;
 
     private final RestTemplate restTemplate;
+
+    @Value("${API_ELEMENTS_URL}")
+    private String elementsUri;
 
     public MenuSectionController(MenuSectionService menuSectionService, RestTemplate restTemplate) {
         this.menuSectionService = menuSectionService;
@@ -39,7 +43,7 @@ public class MenuSectionController {
     public MenuSectionReadDTO createSection(@RequestBody MenuSectionCreateDTO createDTO) {
         MenuSectionReadDTO tmp = menuSectionService.create(createDTO);
 
-        ResponseEntity<MenuSectionReadDTO> response = restTemplate.postForEntity("http://localhost:8081/api/internal/sections", tmp, MenuSectionReadDTO.class);
+        ResponseEntity<MenuSectionReadDTO> response = restTemplate.postForEntity(elementsUri + "/api/internal/sections", tmp, MenuSectionReadDTO.class);
 
         if (response.getStatusCode().is2xxSuccessful()) {
             System.out.println("Sekcja została poprawnie przesłana do elements-management.");
@@ -52,7 +56,7 @@ public class MenuSectionController {
 
     @PutMapping("/{id}")
     public MenuSectionReadDTO updateSection(@PathVariable UUID id, @RequestBody MenuSectionUpdateDTO updateDTO) {
-        restTemplate.put("http://localhost:8081/api/internal/sections/" + id, updateDTO);
+        restTemplate.put(elementsUri + "/api/internal/sections/" + id, updateDTO);
         return menuSectionService.update(id, updateDTO);
     }
 
@@ -60,6 +64,6 @@ public class MenuSectionController {
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void deleteSection(@PathVariable UUID id) {
         menuSectionService.delete(id);
-        restTemplate.delete("http://localhost:8081/api/internal/sections/" + id);
+        restTemplate.delete(elementsUri + "/api/internal/sections/" + id);
     }
 }

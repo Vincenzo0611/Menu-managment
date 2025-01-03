@@ -1,0 +1,12 @@
+com\example\AUI_2\controllers\MenuSectionController.class
+com\example\AUI_2\DTO\SimpleSection.class
+com\example\AUI_2\DTO\MenuSectionUpdateDTO.class
+com\example\AUI_2\DataInitializer.class
+com\example\AUI_2\DTO\MenuSectionCreateDTO.class
+com\example\AUI_2\DTO\MenuSectionReadDTO.class
+com\example\AUI_2\AppConfig.class
+com\example\AUI_2\MenuSection$MenuSectionBuilder.class
+com\example\AUI_2\Aui2Application.class
+com\example\AUI_2\MenuSectionService.class
+com\example\AUI_2\MenuSection.class
+com\example\AUI_2\MenuSectionRepository.class

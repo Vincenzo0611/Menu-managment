@@ -3,11 +3,11 @@ spring:
     gateway:
       routes:
         - id: category-service
-          uri: http://localhost:8080
+          uri: ${API_CATEGORIES_URL}
           predicates:
             - Path=/api/sections/**
         - id: elements-service
-          uri: http://localhost:8081
+          uri: ${API_ELEMENTS_URL}
           predicates:
             - Path=/api/elements/**
       globalcors:

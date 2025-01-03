@@ -1,0 +1,80 @@
+version: '3.8'
+services:
+  # Angular frontend
+  frontend:
+    build:
+      context: ./menu_web
+      dockerfile: Dockerfile
+    ports:
+      - "4200:80"
+
+  # Spring Boot - Categories
+  categories:
+    build:
+      context: ./category-management
+      dockerfile: Dockerfile
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:mysql://categories-db:3306/categories
+      - SPRING_DATASOURCE_USERNAME=root
+      - SPRING_DATASOURCE_PASSWORD=root
+      - API_ELEMENTS_URL=http://elements:8081
+    ports:
+      - "8080:8080"
+    depends_on:
+      categories-db:
+          condition: service_healthy
+
+  # Spring Boot - Elements
+  elements:
+    build:
+      context: ./elements-management
+      dockerfile: Dockerfile
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:mysql://elements-db:3306/elements
+      - SPRING_DATASOURCE_USERNAME=root
+      - SPRING_DATASOURCE_PASSWORD=root
+    ports:
+      - "8081:8081"
+    depends_on:
+      elements-db:
+        condition: service_healthy
+
+  # Database for Categories
+  categories-db:
+    image: mysql:latest
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: categories
+    ports:
+      - "3306:3306"
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      interval: 30s
+      retries: 5
+
+  # Database for Elements
+  elements-db:
+    image: mysql:latest
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: elements
+    ports:
+      - "3307:3306"
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      interval: 30s
+      retries: 5
+
+  # API Gateway
+  api-gateway:
+    build:
+      context: ./API_Gateway
+      dockerfile: Dockerfile
+    ports:
+      - "8082:8082"
+    depends_on:
+      - categories
+      - elements
+    environment:
+      - API_CATEGORIES_URL=http://categories:8080
+      - API_ELEMENTS_URL=http://elements:8081
