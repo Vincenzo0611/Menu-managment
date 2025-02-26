@@ -1,17 +1,17 @@
 <table>
     <thead>
       <tr>
-        <th>Sekcje</th>
-        <th><button class="add-btn" (click)="router.navigate(['/categories/add'])">Dodaj</button></th>
+        <th>Sections</th>
+        <th><button class="add-btn" (click)="router.navigate(['/categories/add'])">Add new</button></th>
       </tr>
     </thead>
     <tbody>
       <tr *ngFor="let category of categories">
         <td>{{ category.name }}</td>
         <td>
-          <button class="edit-btn" (click)="editCategory(category.id)">Edytuj</button>
-          <button class="delete-btn" (click)="openConfirmationModal(category.id)">Usuń</button>
-          <button class="details-btn" (click)="elementsView(category.id)">Elementy</button>
+          <button class="edit-btn" (click)="editCategory(category.id)">Edit</button>
+          <button class="delete-btn" (click)="openConfirmationModal(category.id)">Delete</button>
+          <button class="details-btn" (click)="elementsView(category.id)">Elements</button>
         </td>
       </tr>
     </tbody>
@@ -21,8 +21,8 @@
 <!-- Modal -->
 <div class="modal" *ngIf="showModal">
     <div class="modal-content">
-      <p>Czy na pewno chcesz usunąć tę sekcję?</p>
-      <button class ="tak-button" (click)="confirmDeletion()">Tak</button>
-      <button class ="nie-button" (click)="cancelDeletion()">Nie</button>
+      <p>Are you sure?</p>
+      <button class ="tak-button" (click)="confirmDeletion()">Yes</button>
+      <button class ="nie-button" (click)="cancelDeletion()">No</button>
     </div>
   </div>

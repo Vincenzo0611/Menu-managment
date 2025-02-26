@@ -1,7 +1,7 @@
 <div class="form-container">
-    <h2>Edytuj kategorię</h2>
+    <h2>Edit category</h2>
     <form (ngSubmit)="updateCategory()">
-      <label for="categoryName">Nazwa kategorii:</label>
+      <label for="categoryName">Name of category:</label>
       <input
         id="categoryName"
         type="text"
@@ -9,7 +9,7 @@
         name="categoryName"
         required
       />
-      <label for="categoryDescription">Opis:</label>
+      <label for="categoryDescription">Description:</label>
       <input
         id="categoryDescription"
         type="text"
@@ -18,9 +18,9 @@
         required
       />
       <div class="buttons">
-        <button type="submit">Zapisz</button>
+        <button type="submit">Save</button>
         <button type="button" (click)="router.navigate(['/categories'])">
-          Anuluj
+          Cancel
         </button>
       </div>
     </form>

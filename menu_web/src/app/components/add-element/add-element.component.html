@@ -1,7 +1,7 @@
 <div class="form-container">
-    <h2>Dodaj nowy element</h2>
+    <h2>Add new category</h2>
     <form (ngSubmit)="addElement()">
-      <label for="elementName">Nazwa elementu:</label>
+      <label for="elementName">Name of element:</label>
       <input
         id="elementName"
         type="text"
@@ -9,7 +9,7 @@
         name="elementName"
         required
       />
-      <label for="elementPrice">Cena:</label>
+      <label for="elementPrice">Price:</label>
       <input
         id="elementPrice"
         type="number"
@@ -20,9 +20,9 @@
         min="1"
       />
       <div class="buttons">
-        <button type="submit">Dodaj</button>
+        <button type="submit">Add</button>
         <button type="button" (click)="router.navigate(['/categories'])">
-          Anuluj
+          Cancel
         </button>
       </div>
     </form>
