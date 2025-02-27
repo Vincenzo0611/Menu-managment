@@ -20,8 +20,8 @@ The project consists of three microservices written in Spring Boot and a fronten
 
 ### 1. Clone the Repository
 ```sh
- git clone <REPOSITORY_URL>
- cd <REPOSITORY_NAME>
+ git clone https://github.com/Vincenzo0611/Menu-managment.git
+ cd Menu-managment
 ```
 
 ### 2. Build the Backend Applications
