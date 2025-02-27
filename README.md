@@ -24,31 +24,20 @@ The project consists of three microservices written in Spring Boot and a fronten
  cd Menu-managment
 ```
 
-### 2. Build the Backend Applications
-Each microservice needs to be built before running Docker.
+### 2. Build the Frontend Application
 ```sh
- cd API_Gateway
- mvn clean install
- cd ../category-management
- mvn clean install
- cd ../elements-management
- mvn clean install
-```
-
-### 3. Build the Frontend Application
-```sh
- cd menu-management
+ cd menu_web
  npm install
  ng build --configuration=production
 ```
 
-### 4. Start the Entire System with Docker Compose
+### 3. Start the Entire System with Docker Compose
 ```sh
  cd ..
- docker-compose up --build
+ docker-compose up --build -d
 ```
 
-### 5. Access the Application
+### 4. Access the Application
 - **Angular Frontend:** [http://localhost:4200](http://localhost:4200)
 - **API Gateway:** [http://localhost:8080](http://localhost:8080)
 
